@@ -89,8 +89,6 @@
     <ClCompile Include="GeneratedFiles\Release\moc_window.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="gMatrix.cpp" />
-    <ClCompile Include="gVector.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="myglwidget.cpp" />
     <ClCompile Include="parser.cpp" />
@@ -102,8 +100,6 @@
     <ClInclude Include="eController.h" />
     <ClInclude Include="face.h" />
     <ClInclude Include="GeneratedFiles\ui_window.h" />
-    <ClInclude Include="gMatrix.h" />
-    <ClInclude Include="gVector.h" />
     <CustomBuild Include="window.h">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing window.h...</Message>

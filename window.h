@@ -7,7 +7,8 @@
 #include <QWidget>
 #include <QtWidgets>
 #include <QSlider>
-#include "gMatrix.h"
+#include <algebra3.h>
+//#include "gMatrix.h"
 #include "eController.h"
 
 class Data;  // forward declaration of my simple little data class
@@ -28,10 +29,12 @@ public:
 	void select(int selected);			// set the selection
 	void updateDrawing();				// redraw the OpenGL window
 	const int numPolys();											// get the number of faces
-	const gMatrix getPoly(int i);									// get a face
+//	const gMatrix getPoly(int i);									// get a face
+	const mat4 getPoly(int i);									// get a face
 	const int getSelected();										// get the index of the face selected
 	const float getExtrude();
 	void setController(Controller* c); 
+	mat4 rotateMatrix = mat4(1, 1, 1, 1);
 	
 protected:
     void keyPressEvent(QKeyEvent *event);

@@ -711,6 +711,15 @@ mat4& mat4::apply(V_FCT_PTR fct)
 return *this; }
 
 
+vec4 mat4::getCol(int i) {
+	if (i < VX || i > VW)
+		V_ERROR("mat4 [] operator: illegal access; index = " << i << '\n')
+		mat4 temp = mat4(v[0], v[1], v[2], v[3]);
+	temp = temp.transpose();
+	return temp[i];
+}
+
+
 // FRIENDS
 
 mat4 operator - (const mat4& a)

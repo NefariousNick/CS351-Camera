@@ -82,10 +82,17 @@ void MyGLWidget::draw()
 		else
 			glColor3f(0, 0, 1);
 
-		gVector v1 = win->getPoly(i).getCol(0);
-		gVector v2 = win->getPoly(i).getCol(1);
-		gVector v3 = win->getPoly(i).getCol(2);
-		gVector v4 = win->getPoly(i).getCol(3);
+		mat4 tempM4 = mat4(win->getPoly(i));
+
+		tempM4 = win->rotateMatrix * tempM4;
+
+		vec4 v1 = tempM4.getCol(0);//gVector v1 = d->getPoly(i).getCol(0);
+		vec4 v2 = tempM4.getCol(1);//gVector v2 = d->getPoly(i).getCol(1);
+		vec4 v3 = tempM4.getCol(2);//gVector v3 = d->getPoly(i).getCol(2);
+		vec4 v4 = tempM4.getCol(3);//gVector v4 = d->getPoly(i).getCol(3);
+
+
+
 
 		glBegin(GL_QUADS);
 		glVertex3f(v1[0], v1[1], v1[2]);

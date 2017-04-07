@@ -110,12 +110,15 @@ void Window::updateDrawing() 			// redraw the OpenGL window
 	ui->myGLWidget->update(); 
 }
 
+
 const int Window::numPolys()			// get the number of faces
 {
 	return controller->numPolys();
 }
 
-const gMatrix Window::getPoly(int i)			// get a face
+//const gMatrix Window::getPoly(int i)			// get a face
+const mat4 Window::getPoly(int i)			// get a face
+
 {
 	return controller->getPoly(i);
 }
