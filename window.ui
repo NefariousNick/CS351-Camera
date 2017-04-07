@@ -17,6 +17,23 @@
    <item row="0" column="0">
     <widget class="QListWidget" name="listWidget"/>
    </item>
+   <item row="1" column="1">
+    <widget class="QPushButton" name="extrudeButton">
+     <property name="contextMenuPolicy">
+      <enum>Qt::NoContextMenu</enum>
+     </property>
+     <property name="text">
+      <string>Extrude</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QSlider" name="horizontalSlider">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
    <item row="0" column="1">
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
@@ -31,20 +48,10 @@
      </item>
     </layout>
    </item>
-   <item row="1" column="0">
-    <widget class="QSlider" name="horizontalSlider">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="1">
-    <widget class="QPushButton" name="extrudeButton">
-     <property name="contextMenuPolicy">
-      <enum>Qt::NoContextMenu</enum>
-     </property>
+   <item row="2" column="0">
+    <widget class="QPushButton" name="animateButton">
      <property name="text">
-      <string>Extrude</string>
+      <string>Animate</string>
      </property>
     </widget>
    </item>

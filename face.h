@@ -15,7 +15,7 @@ class Face{
 			points[1] = v2;
 			points[2] = v3;
 			points[3] = v4;
-
+			points = points.transpose();
 			
 			/*points[0][0] = v1[0];
 			points[1][0] = v1[1];

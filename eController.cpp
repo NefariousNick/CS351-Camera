@@ -10,6 +10,7 @@ Controller::Controller(Window* window){
 	//faces.push_back(new Face(gVector(-1, -1, 1), gVector(-1, 1, 1), gVector(1, 1, 1), gVector(1, -1, 1)));
 	//faces.push_back(new Face(gVector(-1, -1, -1), gVector(-1, -1, 1), gVector(1, -1, 1), gVector(1, -1, -1)));
 	//faces.push_back(new Face(gVector(-1, 1, -1), gVector(-1, 1, 1), gVector(-1, -1, 1), gVector(-1, -1, -1)));
+/*
 	Face* temp = new Face(vec4(0, 0, 0, 0), vec4(3, 0, 0, 0), vec4(3, 3, 0, 0), vec4(0, 3, 0, 1));
 	faces.push_back(temp);
 	Face* temp2 = new Face(vec4(3, 0, 0, 0), vec4(3, 0, 3, 0), vec4(3, 3, 3, 0), vec4(3, 3, 0, 1));
@@ -22,8 +23,8 @@ Controller::Controller(Window* window){
 	faces.push_back(temp5);
 	Face* temp6 = new Face(vec4(0, 0, 0, 0), vec4(3, 0, 0, 0), vec4(3, 0, 3, 0), vec4(0, 0, 3, 1));
 	faces.push_back(temp6);
-
-	//parser("sampleInput.txt", &faces);		// Will load a model from a file
+*/
+	parser("sampleInput.txt", &faces);		// Will load a model from a file
 	selected = 0;								// Start with the zero-ith face selected
 	win = window; 
 

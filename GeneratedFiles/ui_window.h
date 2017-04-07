@@ -29,10 +29,11 @@ class Ui_Window
 public:
     QGridLayout *gridLayout;
     QListWidget *listWidget;
+    QPushButton *extrudeButton;
+    QSlider *horizontalSlider;
     QHBoxLayout *horizontalLayout;
     MyGLWidget *myGLWidget;
-    QSlider *horizontalSlider;
-    QPushButton *extrudeButton;
+    QPushButton *animateButton;
 
     void setupUi(QWidget *Window)
     {
@@ -48,6 +49,18 @@ public:
 
         gridLayout->addWidget(listWidget, 0, 0, 1, 1);
 
+        extrudeButton = new QPushButton(Window);
+        extrudeButton->setObjectName(QStringLiteral("extrudeButton"));
+        extrudeButton->setContextMenuPolicy(Qt::NoContextMenu);
+
+        gridLayout->addWidget(extrudeButton, 1, 1, 1, 1);
+
+        horizontalSlider = new QSlider(Window);
+        horizontalSlider->setObjectName(QStringLiteral("horizontalSlider"));
+        horizontalSlider->setOrientation(Qt::Horizontal);
+
+        gridLayout->addWidget(horizontalSlider, 1, 0, 1, 1);
+
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setSpacing(6);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
@@ -60,17 +73,10 @@ public:
 
         gridLayout->addLayout(horizontalLayout, 0, 1, 1, 1);
 
-        horizontalSlider = new QSlider(Window);
-        horizontalSlider->setObjectName(QStringLiteral("horizontalSlider"));
-        horizontalSlider->setOrientation(Qt::Horizontal);
+        animateButton = new QPushButton(Window);
+        animateButton->setObjectName(QStringLiteral("animateButton"));
 
-        gridLayout->addWidget(horizontalSlider, 1, 0, 1, 1);
-
-        extrudeButton = new QPushButton(Window);
-        extrudeButton->setObjectName(QStringLiteral("extrudeButton"));
-        extrudeButton->setContextMenuPolicy(Qt::NoContextMenu);
-
-        gridLayout->addWidget(extrudeButton, 1, 1, 1, 1);
+        gridLayout->addWidget(animateButton, 2, 0, 1, 1);
 
 
         retranslateUi(Window);
@@ -82,6 +88,7 @@ public:
     {
         Window->setWindowTitle(QApplication::translate("Window", "Window", Q_NULLPTR));
         extrudeButton->setText(QApplication::translate("Window", "Extrude", Q_NULLPTR));
+        animateButton->setText(QApplication::translate("Window", "Animate", Q_NULLPTR));
     } // retranslateUi
 
 };

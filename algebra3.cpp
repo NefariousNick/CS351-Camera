@@ -713,7 +713,7 @@ return *this; }
 
 vec4 mat4::getCol(int i) {
 	if (i < VX || i > VW)
-		V_ERROR("mat4 [] operator: illegal access; index = " << i << '\n')
+		V_ERROR("mat4[] operator: illegal index = " << i << '\n')
 		mat4 temp = mat4(v[0], v[1], v[2], v[3]);
 	temp = temp.transpose();
 	return temp[i];
