@@ -316,11 +316,11 @@ vec3 maxv(const vec3& a, const vec3& b)
 
 vec3 prod(const vec3& a, const vec3& b)
 { return vec3(a.n[VX] * b.n[VX], a.n[VY] * b.n[VY], a.n[VZ] * b.n[VZ]); }
-
+/*
 std::string vec3::print() {
 	std::cout << printf("[%f, %f, %f]", n[0], n[1], n[2]);
 	return std::string(printf("[%f, %f, %f]", n[0], n[1], n[2]));
-}
+}*/
 
 
 /****************************************************************

@@ -14,13 +14,6 @@
    <string>Window</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="2" column="2">
-    <widget class="QLabel" name="label">
-     <property name="text">
-      <string>TextLabel</string>
-     </property>
-    </widget>
-   </item>
    <item row="1" column="2">
     <widget class="QPushButton" name="extrudeButton">
      <property name="contextMenuPolicy">
@@ -67,21 +60,21 @@
      <item>
       <widget class="QLabel" name="eyeLabel">
        <property name="text">
-        <string>TextLabel</string>
+        <string/>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QLabel" name="camLabel">
        <property name="text">
-        <string>TextLabel</string>
+        <string/>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QLabel" name="upLabel">
        <property name="text">
-        <string>TextLabel</string>
+        <string/>
        </property>
       </widget>
      </item>
