@@ -17,4 +17,5 @@ class Camera {
 		void increaseRad(float inc);	// increase the radius
 		const vec3 getEye();//const gVector getEye();	// get the current eye position
 		const vec3 getUp();//const gVector getUp();		// get the current up vector
+		const mat4 getRotation();
 };

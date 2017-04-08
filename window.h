@@ -47,8 +47,8 @@ public slots :
 	void on_treeWidget_currentItemChanged(int value);  // Called when a different item in the tree view is selected. 
     void on_horizontalSlider_valueChanged(int value); // Called when the slider is slid. 
 	void on_clicked_extrudeButton();
-//	void on_clicked_animateButton();
-	void on_animateButton_clicked();
+	void on_clicked_animateButton();
+//	void on_animateButton_clicked();
 	void animate();
 		
 private:

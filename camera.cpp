@@ -35,3 +35,6 @@ const vec3 Camera::getEye() {
 const vec3 Camera::getUp() {
 	return up * rot;
 }
+const mat4 Camera::getRotation() {
+	return rot;
+}
