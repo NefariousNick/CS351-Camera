@@ -90,6 +90,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="mesh.cpp" />
     <ClCompile Include="myglwidget.cpp" />
     <ClCompile Include="parser.cpp" />
     <ClCompile Include="window.cpp" />
@@ -100,6 +101,7 @@
     <ClInclude Include="eController.h" />
     <ClInclude Include="face.h" />
     <ClInclude Include="GeneratedFiles\ui_window.h" />
+    <ClInclude Include="mesh.h" />
     <CustomBuild Include="window.h">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing window.h...</Message>
