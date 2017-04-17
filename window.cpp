@@ -5,6 +5,7 @@
 #include <string>
 #include "window.h"
 #include "ui_window.h"
+#include "qtimer.h"
 
 #include "myglwidget.h"
 
@@ -20,6 +21,16 @@ Window::Window(QWidget *parent) :  // Window constructor
 	connect(ui->listWidget, &QListWidget::currentRowChanged, this, &Window::on_treeWidget_currentItemChanged);
 	connect(ui->horizontalSlider, &QSlider::valueChanged, this, &Window::on_horizontalSlider_valueChanged);
 	connect(ui->extrudeButton, &QPushButton::clicked, this, &Window::on_clicked_extrudeButton);
+	connect(ui->animateButton, &QPushButton::clicked, this, &Window::on_clicked_animateButton);
+
+
+	timer = new QTimer(this);
+	connect(timer, SIGNAL(timeout()), this, SLOT(animate()));
+	connect(timer, SIGNAL(animate()), this, SLOT(update()));
+	animCount = 0;
+	//ui->eyeLabel->setText(ui->myGLWidget->cam->getEye().print());
+	//ui->upLabel->setText("%s",ui->myGLWidget->cam->getUp());
+	//ui->camLabel
 }
 
 Window::~Window()
@@ -35,6 +46,7 @@ void Window::keyPressEvent(QKeyEvent *e)  // If the user hits esc, close the pro
 	{
 		ui->myGLWidget->cam->increasePhi(-7);
 		ui->myGLWidget->update();
+
 	}
 	else if (e->key() == Qt::Key_D)
 	{
@@ -110,12 +122,15 @@ void Window::updateDrawing() 			// redraw the OpenGL window
 	ui->myGLWidget->update(); 
 }
 
+
 const int Window::numPolys()			// get the number of faces
 {
 	return controller->numPolys();
 }
 
-const gMatrix Window::getPoly(int i)			// get a face
+//const gMatrix Window::getPoly(int i)			// get a face
+const mat4 Window::getPoly(int i)			// get a face
+
 {
 	return controller->getPoly(i);
 }
@@ -144,3 +159,27 @@ void Window::on_clicked_extrudeButton()
 {
 	controller->extrudeSelected(this->getExtrude());
 }
+
+void Window::on_clicked_animateButton() {
+	this->timer->start(200);	//about ~5fps
+}
+
+
+void Window::animate() {
+	//do {
+		ui->myGLWidget->cam->increasePhi(10);
+		ui->myGLWidget->update();
+		ui->myGLWidget->cam->increaseTheta(10);
+		ui->myGLWidget->update();
+		animCount++;
+	//} while (animCount <= 60);
+	this->timer->stop();
+	animCount = 0;
+}
+/*
+void Window::on_animateButton_clicked()
+{
+	timer->start(200);	//about ~5fps
+
+}
+*/

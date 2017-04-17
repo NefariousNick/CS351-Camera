@@ -66,9 +66,9 @@ void MyGLWidget::draw()
 {
 	glLoadIdentity();
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
 	vec3 tempUp = cam->getUp();
 	vec3 tempEye = cam->getEye();
-
 	// set the camera
 	gluLookAt(	tempEye[0], tempEye[1], tempEye[2], 
 				0, 0, 0,
@@ -82,10 +82,17 @@ void MyGLWidget::draw()
 		else
 			glColor3f(0, 0, 1);
 
-		gVector v1 = win->getPoly(i).getCol(0);
-		gVector v2 = win->getPoly(i).getCol(1);
-		gVector v3 = win->getPoly(i).getCol(2);
-		gVector v4 = win->getPoly(i).getCol(3);
+		mat4 tempM4 = mat4(win->getPoly(i));
+
+		//tempM4 = win->rotateMatrix * tempM4;
+
+		vec4 v1 = tempM4.getCol(0);//gVector v1 = d->getPoly(i).getCol(0);
+		vec4 v2 = tempM4.getCol(1);//gVector v2 = d->getPoly(i).getCol(1);
+		vec4 v3 = tempM4.getCol(2);//gVector v3 = d->getPoly(i).getCol(2);
+		vec4 v4 = tempM4.getCol(3);//gVector v4 = d->getPoly(i).getCol(3);
+
+
+
 
 		glBegin(GL_QUADS);
 		glVertex3f(v1[0], v1[1], v1[2]);
@@ -113,7 +120,7 @@ void MyGLWidget::resizeGL(int width, int height)
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	//glOrtho(-10, 10, -10, 10, -5, 5);  // left, right, bottom, top, near, far
-	gluPerspective(90, 1, 0.1, 10);		// experiment with these settings to see their effects
+	gluPerspective(60, 1, 0.1, 10);		// experiment with these settings to see their effects
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 	glClearColor(0, 0, 0, 0);

@@ -5,10 +5,12 @@
 #include <vector>
 #include <assert.h>
 #include "face.h"
-#include "gVector.h"
+//#include "gVector.h"
 
-gVector parsePoint(std::string point){		// get the x, y, z values of a vertex
-	gVector output(3);
+//gVector parsePoint(std::string point){		// get the x, y, z values of a vertex
+//	gVector output(3);
+vec4 parsePoint(std::string point){
+	vec4 output(3);
 	std::stringstream pointStream(point);
 	pointStream.ignore(1, ' ');		// ignore spaces in the stream
 	pointStream >> output[0];
@@ -21,7 +23,8 @@ gVector parsePoint(std::string point){		// get the x, y, z values of a vertex
 Face* parseLine(std::string line){			// parse a line of the file
 	std::stringstream lineStream(line);		
 	std::string point;
-	std::vector<gVector> faceHolder(4);
+	//std::vector<gVector> faceHolder(4);
+	std::vector<vec4> faceHolder(4);
 	char delim = ' ';
 	int counter = 0;
 	while(delim != ';'){					// parse line until a ';' is found

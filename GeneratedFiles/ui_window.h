@@ -16,9 +16,11 @@
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSlider>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 #include "myglwidget.h"
 
@@ -28,11 +30,17 @@ class Ui_Window
 {
 public:
     QGridLayout *gridLayout;
-    QListWidget *listWidget;
+    QLabel *label;
+    QPushButton *extrudeButton;
+    QSlider *horizontalSlider;
     QHBoxLayout *horizontalLayout;
     MyGLWidget *myGLWidget;
-    QSlider *horizontalSlider;
-    QPushButton *extrudeButton;
+    QPushButton *animateButton;
+    QVBoxLayout *verticalLayout;
+    QListWidget *listWidget;
+    QLabel *eyeLabel;
+    QLabel *camLabel;
+    QLabel *upLabel;
 
     void setupUi(QWidget *Window)
     {
@@ -43,10 +51,22 @@ public:
         gridLayout->setSpacing(6);
         gridLayout->setContentsMargins(11, 11, 11, 11);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
-        listWidget = new QListWidget(Window);
-        listWidget->setObjectName(QStringLiteral("listWidget"));
+        label = new QLabel(Window);
+        label->setObjectName(QStringLiteral("label"));
 
-        gridLayout->addWidget(listWidget, 0, 0, 1, 1);
+        gridLayout->addWidget(label, 2, 2, 1, 1);
+
+        extrudeButton = new QPushButton(Window);
+        extrudeButton->setObjectName(QStringLiteral("extrudeButton"));
+        extrudeButton->setContextMenuPolicy(Qt::NoContextMenu);
+
+        gridLayout->addWidget(extrudeButton, 1, 2, 1, 1);
+
+        horizontalSlider = new QSlider(Window);
+        horizontalSlider->setObjectName(QStringLiteral("horizontalSlider"));
+        horizontalSlider->setOrientation(Qt::Horizontal);
+
+        gridLayout->addWidget(horizontalSlider, 1, 1, 1, 1);
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setSpacing(6);
@@ -58,19 +78,38 @@ public:
         horizontalLayout->addWidget(myGLWidget);
 
 
-        gridLayout->addLayout(horizontalLayout, 0, 1, 1, 1);
+        gridLayout->addLayout(horizontalLayout, 0, 2, 1, 1);
 
-        horizontalSlider = new QSlider(Window);
-        horizontalSlider->setObjectName(QStringLiteral("horizontalSlider"));
-        horizontalSlider->setOrientation(Qt::Horizontal);
+        animateButton = new QPushButton(Window);
+        animateButton->setObjectName(QStringLiteral("animateButton"));
 
-        gridLayout->addWidget(horizontalSlider, 1, 0, 1, 1);
+        gridLayout->addWidget(animateButton, 2, 1, 1, 1);
 
-        extrudeButton = new QPushButton(Window);
-        extrudeButton->setObjectName(QStringLiteral("extrudeButton"));
-        extrudeButton->setContextMenuPolicy(Qt::NoContextMenu);
+        verticalLayout = new QVBoxLayout();
+        verticalLayout->setSpacing(6);
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        listWidget = new QListWidget(Window);
+        listWidget->setObjectName(QStringLiteral("listWidget"));
 
-        gridLayout->addWidget(extrudeButton, 1, 1, 1, 1);
+        verticalLayout->addWidget(listWidget, 0, Qt::AlignTop);
+
+        eyeLabel = new QLabel(Window);
+        eyeLabel->setObjectName(QStringLiteral("eyeLabel"));
+
+        verticalLayout->addWidget(eyeLabel);
+
+        camLabel = new QLabel(Window);
+        camLabel->setObjectName(QStringLiteral("camLabel"));
+
+        verticalLayout->addWidget(camLabel);
+
+        upLabel = new QLabel(Window);
+        upLabel->setObjectName(QStringLiteral("upLabel"));
+
+        verticalLayout->addWidget(upLabel);
+
+
+        gridLayout->addLayout(verticalLayout, 0, 0, 1, 2);
 
 
         retranslateUi(Window);
@@ -81,7 +120,12 @@ public:
     void retranslateUi(QWidget *Window)
     {
         Window->setWindowTitle(QApplication::translate("Window", "Window", Q_NULLPTR));
+        label->setText(QApplication::translate("Window", "TextLabel", Q_NULLPTR));
         extrudeButton->setText(QApplication::translate("Window", "Extrude", Q_NULLPTR));
+        animateButton->setText(QApplication::translate("Window", "Animate", Q_NULLPTR));
+        eyeLabel->setText(QApplication::translate("Window", "TextLabel", Q_NULLPTR));
+        camLabel->setText(QApplication::translate("Window", "TextLabel", Q_NULLPTR));
+        upLabel->setText(QApplication::translate("Window", "TextLabel", Q_NULLPTR));
     } // retranslateUi
 
 };

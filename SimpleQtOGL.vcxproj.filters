@@ -70,16 +70,13 @@
     <ClCompile Include="eController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="gMatrix.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="gVector.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="parser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="algebra3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mesh.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -110,13 +107,10 @@
     <ClInclude Include="face.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="gMatrix.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="gVector.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="algebra3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mesh.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

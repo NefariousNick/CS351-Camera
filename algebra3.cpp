@@ -316,6 +316,11 @@ vec3 maxv(const vec3& a, const vec3& b)
 
 vec3 prod(const vec3& a, const vec3& b)
 { return vec3(a.n[VX] * b.n[VX], a.n[VY] * b.n[VY], a.n[VZ] * b.n[VZ]); }
+/*
+std::string vec3::print() {
+	std::cout << printf("[%f, %f, %f]", n[0], n[1], n[2]);
+	return std::string(printf("[%f, %f, %f]", n[0], n[1], n[2]));
+}*/
 
 
 /****************************************************************
@@ -709,6 +714,15 @@ mat4 mat4::inverse()	    // Gauss-Jordan elimination with partial pivoting
 mat4& mat4::apply(V_FCT_PTR fct)
 { v[VX].apply(fct); v[VY].apply(fct); v[VZ].apply(fct); v[VW].apply(fct);
 return *this; }
+
+
+vec4 mat4::getCol(int i) {
+	if (i < VX || i > VW)
+		V_ERROR("mat4[] operator: illegal index = " << i << '\n')
+		mat4 temp = mat4(v[0], v[1], v[2], v[3]);
+	temp = temp.transpose();
+	return temp[i];
+}
 
 
 // FRIENDS

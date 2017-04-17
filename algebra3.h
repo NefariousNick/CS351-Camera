@@ -168,6 +168,7 @@ friend class vec4;
 friend class mat3;
 friend vec2 operator * (const mat3& a, const vec2& v);	    // linear transform
 friend mat3 operator * (mat3& a, mat3& b);		    // matrix 3 product
+//std::string print();
 };
 
 /****************************************************************
@@ -329,6 +330,7 @@ vec4& operator [] ( int i);		    // indexing
 mat4 transpose();			    // transpose
 mat4 inverse();				    // inverse
 mat4& apply(V_FCT_PTR fct);		    // apply a func. to each element
+vec4 getCol(int i);				//return the column in a vec4
 
 // friends
 

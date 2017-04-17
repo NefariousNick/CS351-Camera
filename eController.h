@@ -21,7 +21,8 @@ class Controller{
 		~Controller();
 		int rotate = 0;
 		const int numPolys();				// Get the number of faces
-		const gMatrix getPoly(int i);		// Get a certain face
+//		const gMatrix getPoly(int i);		// Get a certain face
+		const mat4 getPoly(int i);		// Get a certain face
 		const int getSelected();			// Get which face has been selected
 		void select(int i);					// Set the selected face
 		void extrudeSelected(float depth);	// Perform an extrusion
